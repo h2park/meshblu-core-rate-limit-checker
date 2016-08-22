@@ -1,6 +1,7 @@
 class RateLimitChecker
   constructor: (options={}) ->
     {@client, @Date, @msgRateLimit} = options
+    throw new Error "RateLimitChecker requires client" unless @client?
     @Date ?= Date
     @msgRateLimit ?= 20*60 # messages per minute
 
